@@ -1,0 +1,1450 @@
+
+
+/* MARISA SE PUEDEN USAR KEYFRAMES?? */
+
+
+* {
+	box-sizing: border-box;
+	scroll-behavior: smooth;
+}
+
+
+body {
+	margin: 0;
+	padding-top: 8vh; 
+}
+
+
+/* ---------- HEADER ---------- */
+header {
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 8vh;
+	background-color: black;
+	z-index: 9999;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+header p {
+	color: white;
+	margin: 0;
+	text-align: center;
+	font-size: 20px;
+	font-weight: bold;
+	letter-spacing: 2px;
+	transition: color 0.3s ease, text-shadow 0.3s ease;
+}
+
+header p:hover {
+	color: white;
+	cursor: pointer;
+	text-shadow: 
+		0 0 10px #3d7bff,
+		0 0 18px #3d7bff,
+		0 0 32px #1e50ff;
+}
+
+.header-enlace {
+	text-decoration: none;  
+}
+
+.header-menu {
+	position: absolute;
+	top: 0;
+	right: 2%;
+	height: 100%;
+	display: flex;
+	align-items: center;
+	gap: 2.5vw;
+}
+
+.header-menu a {
+	color: white;
+	text-decoration: none;
+	text-transform: uppercase;
+	font-size: 16px;
+	font-weight: 300;            
+	letter-spacing: 2px;
+	transition: color 0.3s ease, text-shadow 0.3s ease;
+}
+
+.header-menu a:hover {
+	color: white;
+	text-decoration: none;      
+	text-shadow:
+		0 0 10px #3d7bff,
+		0 0 18px #3d7bff,
+		0 0 32px #1e50ff;       
+}
+
+.logo {
+	position: absolute;
+	top: 0;
+	left: 2%;
+	height: 100%;
+}
+
+.logo img {
+	height: 100%;
+	width: auto;
+	display: block;
+	transition: opacity 0.3s ease;
+}
+
+.logo .logo2 {
+	position: absolute;
+	top: 0;
+	left: 0;
+	opacity: 0;
+}
+
+.logo .logo1 {
+	animation: cambio-logo1 8s infinite;
+}
+
+.logo .logo2 {
+	animation: cambio-logo2 8s infinite;
+}
+
+@keyframes cambio-logo1 {
+	0%, 88%   { opacity: 1; transform: rotate(0deg); }
+	92%, 96%  { opacity: 0; transform: rotate(-2deg); }
+	100%      { opacity: 1; transform: rotate(0deg); }
+}
+
+@keyframes cambio-logo2 {
+	0%, 88%   { opacity: 0; transform: rotate(0deg); }
+	92%, 96%  { opacity: 1; transform: rotate(-2deg); }
+	100%      { opacity: 0; transform: rotate(0deg); }
+}
+
+.logo:hover .logo1 { animation: none; opacity: 0; transform: rotate(-2deg); cursor: pointer; }
+.logo:hover .logo2 { animation: none; opacity: 1; transform: rotate(-2deg); cursor: pointer; }
+
+
+/* ---------- PORTADA ---------- */
+.portada {
+	scroll-margin-top: 8vh;
+	position: relative;
+	min-width: 100%;
+	height: 82vh;
+	background-color: #14177a;
+	background-image: url("img/portada.yo.fondo.png");
+	background-size: cover;
+	background-position: center;
+	background-repeat: no-repeat;
+	overflow: hidden;
+}
+
+
+.lienzo {
+	position: absolute;
+	top: 0;
+	left: 50%;
+	width: 145.8vh;
+	height: 100%;
+	margin-left: -72.9vh;   
+}
+
+
+.lienzo h1 {
+	font-family: "Climate Crisis", sans-serif;
+	font-weight: 400;
+	font-variation-settings: "YEAR" 1979;
+	position: absolute;
+	top: 7%;
+	left: 0;
+	width: 100%;
+	margin: 0;
+	z-index: 1;                  /* z index */
+	font-size: 14.6vh;
+	line-height: 1;
+	white-space: nowrap;
+	text-align: center;
+	color: #f1ebe2;
+	transition: transform 0.6s ease, color 0.3s ease;
+}
+
+
+.lienzo h1:hover {
+	z-index: 5;
+	transform: scale(1.05);
+	opacity: 0.8;
+}
+
+.lienzo h2 {
+	position: absolute;
+	top: 24%;
+	left: 65%;
+	margin: 0;
+	z-index: 3;
+	font-family: "Exo", sans-serif;
+	font-weight: 200;
+	font-size: 3.5vh;
+	color: #f1ebe2;
+}
+
+
+
+.foto {
+	position: absolute;
+	width: 32.1%;
+	height: auto;
+	z-index: 4;                  /* z index*/
+	transition: transform 0.4s ease;
+}
+
+.foto-izq {
+	left: 3%;
+	top: 30%;
+	transform: rotate(23deg);
+}
+
+.foto-izq:hover {
+	transform: scale(1.15) rotate(12deg);
+}
+
+.foto-der {
+	left: 66.9%;
+	top: 28%;
+	transform: rotate(-23deg);
+}
+
+.foto-der:hover {
+	transform: scale(1.15) rotate(-12deg);
+}
+
+.foto img {
+	display: block;
+	width: 100%;               
+}
+
+.yo {
+	position: absolute;
+	left: 16%;
+	bottom: 0;
+	height: 90%;
+	width: auto;
+	z-index: 2;
+	pointer-events: none;  
+}
+
+/* ----- Animación dibujo yo ----- */
+.yo2,
+.yo3 {opacity: 0;}
+
+.foto-izq:hover ~ .yo1 { opacity: 0; }
+.foto-izq:hover ~ .yo2 { opacity: 1; }
+
+.foto-der:hover ~ .yo1 { opacity: 0; }
+.foto-der:hover ~ .yo3 { opacity: 1; }
+
+
+
+/* ---------- ENCUADRE AMARILLO s---------- */
+.encuadre {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	z-index: 10;
+	pointer-events: none;       
+}
+
+
+/* ---------- BANNER ---------- */
+.banner {
+	position: relative;
+	height: 10vh;
+	background-image: url(img/portada.banner.png);
+	background-size: cover;
+	overflow: hidden;
+}
+
+.banner-track {
+	position: absolute;
+	top: 0;
+	left: 0;
+	height: 100%;
+	display: flex;
+	align-items: center;
+	width: max-content;
+}
+
+.banner h2 {
+	margin: 0;
+	padding: 0 40px;
+	flex-shrink: 0;
+	white-space: nowrap;
+	font-family: "Exo", sans-serif;
+	font-weight: 200;
+	color: white;
+}
+
+
+/* ---------- ABOUT ME ---------- */
+
+.aboutme {
+	scroll-margin-top: 8vh;      /* sitio para el header fijo */
+}
+
+
+.aboutme {
+	position: relative;
+	height: 90vh;
+	background-color: #232a9e;
+	overflow: hidden;
+}
+
+.am-estrella {
+	position: absolute;
+	left: 35%;
+	top: 3%;
+	height: 55%;
+	width: auto;
+	z-index: 1;
+	transform: rotate(-14deg);
+}
+
+.am-yo {
+	position: absolute;
+	left: 10%;
+	top: 4%;
+	height: 89%;
+	width: auto;
+	z-index: 2;
+	transform: rotate(14deg);
+	transition: transform 0.6s ease, color 0.3s ease;
+}
+
+.am-yo:hover {
+	transform: scale(1.0) rotate(0deg);
+}
+
+
+.am-camara {
+	position: absolute;
+	left: 32%;
+	bottom: 3%;
+	width: 26%;
+	height: auto;
+	z-index: 3;
+	transition: transform 0.6s ease, color 0.3s ease;
+}
+
+
+/* ----- Menú de la derecha ----- */
+.menu {
+	position: absolute;
+	left: 62%;
+	top: 4%;
+	width: 32%;
+	height: 92%;
+	z-index: 5;
+	display: flex;
+	flex-direction: column;
+}
+
+.item {
+	flex: 1;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	border-bottom: 3px solid white;
+	cursor: pointer;
+}
+
+.item h3 {
+	margin: 0;
+	font-family: "Climate Crisis", sans-serif;
+	font-weight: 400;
+	font-variation-settings: "YEAR" 1979;
+	font-size: 6vh;
+	text-transform: uppercase;
+	text-decoration: underline;
+	color: white;
+	transition: transform 0.3s ease;
+}
+
+.item:hover h3 {
+	transform: scale(1.08);
+}
+
+
+/* ----- Recuadro de info ----- */
+.panel {
+	position: absolute;
+	left: 3%;
+	top: 4%;
+	width: 57%;
+	height: 92%;
+	z-index: 10;                      
+	background-color: #f1ebe2;
+	color: #14177a;
+	border: 3px solid white;
+	font-family: "Exo", sans-serif;
+
+	clip-path: inset(0 0 0 100%);   /* "recorte" */
+	visibility: hidden;
+	transition: clip-path 0.5s ease, visibility 0s 0.5s;
+}
+
+.panel.abierto {
+	clip-path: inset(0 0 0 0);
+	visibility: visible;
+	transition: clip-path 0.5s ease, visibility 0s 0s;
+}
+
+.panel {
+	position: absolute;
+	left: 3%;
+	top: 4%;
+	width: 57%;
+	height: 92%;
+	z-index: 10;
+	background-color: #1F2584;       
+	color: #f1ebe2;                  
+	border: 3px solid white;
+	font-family: "Exo", sans-serif;
+
+	clip-path: inset(0 0 0 100%);
+	visibility: hidden;
+	transition: clip-path 0.5s ease, visibility 0s 0.5s;
+}
+
+.panel-cerrado {
+	height: 100%;
+	padding: 3vh 2.5% 4vh 2.5%;
+	overflow-y: auto;
+	scrollbar-width: thin;
+	scrollbar-color: #f1ebe2 transparent;
+}
+
+
+
+/* Cruz arriba a la derecha */
+.cerrar {
+	position: absolute;
+	top: 2vh;
+	right: 2vh;
+	z-index: 2;
+	font-size: 4vh;
+	font-weight: bold;
+	line-height: 1;
+	cursor: pointer;
+	transition: transform 0.3s ease;
+}
+
+.cerrar:hover {
+	transform: scale(1.2);
+}
+
+
+.banner-azul {height: 8vh;
+				background-color:#232a9e }
+
+/* ---------- CONTENIDO DE LOS PANELES ---------- */
+.seccion-titulo {
+	width: 88%;                       
+	background-color: black;
+	padding: 0.2em 0.6em;
+	margin-bottom: 3vh;
+}
+
+.seccion-titulo h2 {
+	margin: 0;
+	font-family: "Climate Crisis", sans-serif;
+	font-weight: 400;
+	font-variation-settings: "YEAR" 1979;
+	font-size: clamp(22px, 4vw, 60px); /* ---------- CLAMP (mínimo, ideal, máximo) ---------- */
+	line-height: 1.1;
+	text-transform: uppercase;
+	color: white;
+}
+
+.panel p { margin: 0; }
+
+/* ----- About me ----- */
+.about {
+	display: grid;
+	grid-template-columns: 30% 1fr;
+	gap: 2vh 2vw;
+	align-items: start;
+}
+
+.about-yo {
+	grid-column: 1;
+	grid-row: 1 / span 2;
+	width: 200%;           
+	max-width: none;
+	height: auto;
+	margin-left: -20%;        
+	position: relative;
+	z-index: 2;             
+	pointer-events: none;   
+}
+.globo1   { grid-column: 2; grid-row: 1; }
+.globo2   { grid-column: 2; grid-row: 2; width: 88%; justify-self: end; }
+
+.globo {
+	background-color: #fffdf5;
+	color: #14177a;
+	border: 3px solid #ffd21f;
+	border-radius: 24px;
+	padding: 1em 1.2em;
+	font-size: clamp(12px, 1.25vw, 19px);
+	letter-spacing: 1px;
+	line-height: 1.5;
+}
+
+.globo p + p { margin-top: 0.5em; }
+
+/* ----- Skills ----- */
+.skills {
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	gap: 2vw;
+	align-items: center;
+}
+
+.skill {
+	display: grid;
+	grid-template-columns: 7em 1fr 3em;
+	align-items: center;
+	gap: 0.8em;
+	margin-bottom: 1.6vh;
+	font-size: clamp(12px, 1.2vw, 18px);
+}
+
+.skill.idioma { grid-template-columns: 5em 1fr; }
+
+.barra { height: 0.5em; background-color: white; overflow: hidden; }
+.barra span { display: block; height: 100%; width: var(--v); background-color: #7fa34a; }
+.skill small { font-size: 0.65em; }
+
+.portatil { width: 100%; height: auto; display: block; margin-bottom: 2vh; }
+
+.skills-lado h3 {
+	font-family: "Climate Crisis", sans-serif;
+	font-weight: 400;
+	font-variation-settings: "YEAR" 1979;
+	font-size: clamp(14px, 1.8vw, 26px);
+	text-transform: uppercase;
+	margin: 0 0 1.5vh;
+}
+
+/* ----- Projects ----- */
+.intro { font-size: clamp(12px, 1.15vw, 17px); letter-spacing: 1px; margin-bottom: 3vh; }
+
+.jam {
+	display: grid;
+	grid-template-columns: clamp(60px, 8vw, 120px) 1fr;
+	gap: 2vw;
+	align-items: center;
+	margin-bottom: 3vh;
+	font-size: clamp(12px, 1.2vw, 18px);
+}
+
+.jam img { width: 100%; height: auto; display: block; transition: transform 0.3s ease; }
+.jam a:hover img { transform: scale(1.1) rotate(-3deg); }
+.jam .fecha { color: #ffd21f; font-size: 0.8em; margin-bottom: 0.3em; }
+
+.gatos { display: block; width: 100%; margin-top: 2vh; }
+
+/* ----- Studies y Experience: línea de tiempo ----- */
+.dos-col {
+	display: grid;
+	grid-template-columns: 1fr 30%;
+	gap: 2vw;
+	align-items: center;
+}
+
+.linea {
+	margin-left: 10px;
+	padding-left: 2em;
+	border-left: 3px solid white;
+}
+
+.insti { position: relative; margin-bottom: 4vh; }
+.insti:last-child { margin-bottom: 0; }
+
+.hito::before {
+	content: "";
+	position: absolute;
+	left: -2em;                  
+	transform: translateX(-50%); 
+	top: 0.2em;
+	width: 20px;
+	height: 20px;
+	border-radius: 50%;
+	background-color: #ffd21f;
+	border: 3px solid white;
+}
+
+.insti h3 { margin: 0 0 0.4em; font-weight: 500; font-size: clamp(14px, 1.5vw, 22px); }
+.insti h3 span { margin-left: 0.8em; font-weight: 300; font-size: 0.75em; }
+.insti h4 { margin: 0 0 0.3em; color: #ffd21f; font-weight: 500; font-size: clamp(12px, 1.25vw, 18px); }
+.insti p { font-size: clamp(12px, 1.2vw, 18px); line-height: 1.5; }
+
+.lado-img { width: 100%; height: auto; }
+
+.bustos { display: flex; flex-direction: column; gap: 2vh; }
+.bustos img { width: 75%; height: auto; }
+.bustos img:nth-child(2) { align-self: flex-end; }
+
+
+
+/* ---------- PROYECTOS ---------- */
+.galeria {
+	background-color: #232a9e;
+	padding-bottom: 6vh;
+}
+
+.galeria {
+	scroll-margin-top: 8vh;
+}
+
+/* ----- Menú sticky ----- */
+.menu-proyectos {
+	position: sticky;
+	top: 8vh;                         /* para el header fijo */
+	z-index: 100;
+	height: 8vh;
+	background-color: #f1ebe2;
+	display: flex;
+	flex-wrap: nowrap;
+	align-items: center;
+	justify-content: flex-end;
+	padding-right: 15vw;
+}
+
+
+.menu-proyectos .nav-link {
+	position: relative;
+	padding: 0.3em 1em;
+	margin-left: 1.7em;
+	font-family: Exo, sans-serif;
+	font-weight: 300;
+	font-size: 2vh;
+	color: #14177a;
+	transition: color 0.3s ease;
+}
+
+.menu-proyectos  p {
+	margin-bottom:0;
+	margin-right: 9.5em;
+	font-family: "Climate Crisis", sans-serif;
+	font-weight: 100;
+	font-variation-settings: "YEAR" 1979;
+	font-size: 3vh;
+	color: #14177a;
+
+}
+
+
+
+.menu-proyectos .nav-link:hover,
+.menu-proyectos .nav-link.active {
+	color: #2a35e0;
+	text-decoration: none;
+}
+
+
+.menu-proyectos .nav-link::before,
+.menu-proyectos .nav-link::after {
+	content: "";
+	position: absolute;
+	top: 0;
+	width: 0.9em;
+	height: 100%;
+	background-image: url("img/menu.corchete.png");
+	background-size: 100% 100%;
+	background-repeat: no-repeat;
+}
+
+.menu-proyectos .nav-link::before {
+	left: 0;
+}
+
+.menu-proyectos .nav-link::after {
+	right: 0;
+	transform: scaleX(-1);         
+}
+
+.galeria {
+	background: linear-gradient(to bottom, #f1ebe2 0%, #232a9e 5%);
+	padding-bottom: 6vh;
+}
+
+/* ----- Cada proyecto ----- */
+.proyecto {
+	padding: 5vh 0;
+	scroll-margin-top: 16vh;         
+}
+
+.proy-titulo {
+	position: absolute;
+	z-index: 3;
+	top: 5%;             
+	left: 38%;           
+	margin: 0;
+	padding: 0;
+	pointer-events: none;
+	font-family: "Exo", sans-serif;
+	font-weight: 100;
+	font-size: 2.1vw;
+	color: #f1ebe2;
+}
+
+.proy-info {
+	position: absolute;
+	z-index: 4;  
+	top: 85%;       
+	left: 35%;  
+	width: 50%;               
+	margin: 0;
+	padding: 0;
+	margin-bottom: 10px;
+	pointer-events: none;     
+	font-family: "Exo", sans-serif;
+	font-weight: 300;
+	font-size: 1.2vw;
+	line-height: 1.3;
+	color: #f1ebe2;  
+}
+
+
+/* ----- Cámara con símbolo de play ----- */
+.camara {
+	position: relative;
+	display: block;
+	z-index: 2;
+}
+
+.camara img {
+	display: block;
+	width: 100%;
+	height: auto;
+}
+
+.play {
+	position: absolute;
+	left: 63%;                       
+	top: 49%;
+	width: 6vh;
+	height: 6vh;
+	margin-left: -3vh;
+	margin-top: -3vh;
+	border: 0.3vh solid white;
+	border-radius: 50%;
+	background-color: rgba(0, 0, 0, 0.5);
+	transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+.play::after {
+	content: "";
+	position: absolute;
+	left: 50%;
+	top: 50%;
+	margin-left: -0.9vh;
+	margin-top: -1.4vh;
+	border-style: solid;
+	border-width: 1.4vh 0 1.4vh 2.4vh;
+	border-color: transparent transparent transparent white;
+}
+
+.camara:hover .play {
+	transform: scale(1.2);
+	background-color: rgba(0, 0, 0, 0.7);
+}
+
+.proyecto .col-md-4 {
+	position: relative;
+	align-self: flex-start;   
+	margin-top: 6vh;
+}
+
+/* ----- Fotos con marco ----- */
+
+
+.proy-fotos {
+	padding-right: 3vw;
+}
+
+.proy-fotos .row {
+	flex-wrap: nowrap;           
+	overflow-x: auto;            
+	padding: 2vh 0;            
+	scrollbar-width: thin;
+	scrollbar-color: #f1ebe2 transparent;  
+}
+
+.proy-fotos .row {
+	scroll-behavior: auto;       /* ara que siga al ratón al instante */
+	cursor: grab;               
+	user-select: none;           /* que no se seleccione texto al arrastrar */
+}
+
+.proy-fotos .row.arrastrando,
+.proy-fotos .row.arrastrando a {
+	cursor: grabbing;            
+}
+
+.proy-fotos .col-4 {
+	padding: 1vw 1.5vw;
+}
+
+.marco-foto {
+	position: relative;
+	display: block;
+	height: 0;
+	padding-top: 119.35%;      /* 919 ÷ 770 × 100 */
+	filter: drop-shadow(0.8vh 1vh 1.2vh rgba(0, 0, 0, 0.5));
+	transition: transform 0.4s ease;
+}
+
+.marco-foto:hover {
+	transform: scale(1.06) rotate(-2deg);
+}
+
+
+.foto-dibujo {
+	position: absolute;
+	left: 4%;
+	top: 3%;
+	width: 92%;
+	height: 76%;
+	object-fit: cover;
+}
+
+
+.marco-foto::after {
+	content: "";
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background-image: url("img/proyecto.recuadrofoto.png");
+	background-size: 100% 100%;
+	background-repeat: no-repeat;
+}
+
+
+
+/* ---------- FOOTER / contact ---------- */
+.contact {
+	position: relative;                     
+	height: 70vh;
+	background-position: center top;
+	overflow: hidden;
+	background-color: #14177a;
+	background-image: url("img/footer.fondo.png");
+	background-size: 100% 100%;
+	background-repeat: no-repeat;
+	color: #f1ebe2;
+	padding: 6vh 4vw 0 4vw;                  
+	font-family: "Exo", sans-serif;
+}
+
+/* Los textos encima de los dibujos */
+.contact-texto {
+	position: relative;
+	z-index: 2;
+	width: 60%;
+}
+
+.contact h3 {
+	margin: 0 0 4vh 0;
+	font-family: "Climate Crisis", sans-serif;
+	font-weight: 400;
+	font-variation-settings: "YEAR" 1979;
+	font-size: 5vh;
+	text-transform: uppercase;
+}
+
+
+.contact-columnas {
+	display: grid;
+	grid-template-columns: 62% 38%;
+}
+
+.contact-bloque {
+	margin-bottom: 3vh;
+}
+
+.contact h4 {
+	margin: 0 0 1.5vh 0;
+	font-weight: 400;
+	font-size: 2.4vh;
+}
+
+.contact p {
+	margin: 0 0 1vh 0;
+	font-weight: 300;
+	font-size: 2vh;
+}
+
+.contact a {
+	color: #f1ebe2;
+	text-decoration: none;
+	transition: color 0.3s ease;
+}
+
+.contact a:hover {
+	color: #7f9bff;
+	text-decoration: underline;
+}
+
+
+/* ----- Redes----- */
+.redes {
+	display: grid;
+	grid-template-rows: repeat(3, auto);      
+	grid-auto-flow: column;                   
+	grid-auto-columns: max-content;
+	justify-content: start;
+	gap: 1.5vh 3vw;                          
+}
+
+.redes a {
+	display: block;
+}
+
+.redes img {
+	display: block;
+	width: 4vh;                              
+	height: 4vh;
+	object-fit: contain;                     
+	object-position: left center;
+	filter: brightness(0) invert(1);          /* icono en blanco*/
+	transition: transform 0.3s ease, filter 0.3s ease;
+}
+
+.redes a:hover img {
+	transform: scale(1.2);
+	filter: brightness(0) invert(1) drop-shadow(0 0 6px #3d7bff) drop-shadow(0 0 12px #1e50ff);  
+}
+
+
+/* ----- © ----- */
+.contact .contact-copy {
+	position: absolute;
+	left: 15%;
+	bottom: 0;
+	width: 70%;
+	height: 10%;                            
+	margin: 0;
+	border-top: 2px solid #f1ebe2;
+	display: flex;
+	align-items: center;                      
+	justify-content: center;
+	font-size: 1.6vh;
+	z-index: 2;
+}
+
+
+/* ----- Dibujos de la derecha ----- */
+.footer-dibujo {
+	position: absolute;
+	right: 3%;
+	bottom: 0;                             
+	height: 100%;
+	width: auto;
+	z-index: 1;
+	transition: opacity 0.3s ease;
+}
+
+.footer-dibujo2 {
+	opacity: 0;                            
+}
+
+.footer-dibujo2:hover {
+	opacity: 1;
+}
+
+.contact:has(.footer-dibujo2:hover) .footer-dibujo1 {
+	opacity: 0;
+}
+
+
+/* ---------- GALERÍA (Fancybox) ---------- */
+
+/* Barra de arriba */
+.fancybox-toolbar {
+	transform: scale(1.5);                
+	transform-origin: top right;          
+}
+
+/* Flechas de los lados */
+.fancybox-button--arrow_left {
+	transform: scale(1.6);
+	transform-origin: left center;       
+}
+
+.fancybox-button--arrow_right {
+	transform: scale(1.6);
+	transform-origin: right center;      
+}
+
+/* Contador de fotos (1 / 6), arriba a la izquierda */
+.fancybox-infobar {
+	transform: scale(1.5);
+	transform-origin: top left;
+}
+
+
+
+/* =========================================================
+   RESPONSIVE
+   ========================================================= */
+
+
+/* ------------------------------------------------------TABLET: hasta 980px ------------------------------------------------------*/
+@media screen and (max-width: 980px) {
+
+	/* ---------- HEADER ---------- */
+header {
+	justify-content: flex-start;
+}
+
+.logo {
+	position: relative;      
+	left: auto;
+	flex: none;
+	margin-left: 2%;
+}
+
+.header-enlace {
+	flex: 1;                 
+	min-width: 0;
+	text-align: center;
+	padding: 0 2vw;          
+}
+
+header p {
+	font-size: 17px;
+	letter-spacing: 1px;
+	white-space: nowrap;
+}
+
+.header-menu {
+	position: static;        
+	flex: none;
+	margin: 0 2% 0 0;
+	padding-left: 0;
+	gap: 2vw;
+}
+
+.header-menu a {
+	font-size: 13px;
+	letter-spacing: 1px;
+}
+
+
+	/* ---------- PORTADA ----------*/
+	.portada {
+		height: 56.25vw;
+	}
+
+	.lienzo {
+		width: 100%;
+		left: 0;
+		margin-left: 0;
+	}
+
+	.lienzo h1 { font-size: 10vw; }
+	.lienzo h2 { font-size: 2.4vw; }
+
+
+	/* ---------- BANNER ---------- */
+	.banner h2 { font-size: 1.6rem; }
+
+
+	/* ---------- ABOUT ME ---------- */
+	.aboutme {
+		height: clamp(520px, 80vw, 90vh);
+	}
+
+	.item h3 {
+		font-size: clamp(14px, 3.2vw, 40px);
+		color: #000;
+	}
+
+	.am-yo {
+		left: 8%;
+		top: 20%;
+		height: 72%;
+	}
+
+	.panel {
+		left: 3%;
+		width: 94%;
+	}
+
+	.globo { font-size: clamp(12px, 1.9vw, 19px); }
+	.skill { font-size: clamp(12px, 1.7vw, 18px); }
+
+	.intro { font-size: clamp(13px, 1.9vw, 19px); }
+	.jam {
+		font-size: clamp(13px, 1.9vw, 19px);
+		grid-template-columns: clamp(70px, 12vw, 130px) 1fr;
+	}
+
+	.insti h3 { font-size: clamp(15px, 2.4vw, 24px); }
+	.insti h4 { font-size: clamp(13px, 1.9vw, 20px); }
+	.insti p  { font-size: clamp(13px, 1.9vw, 20px); }
+
+
+	/* ---------- MENÚ STICKY DE PROYECTOS ---------- */
+	.menu-proyectos {
+		padding: 0 2vw;
+		overflow-x: auto;             
+		scrollbar-width: none;
+	}
+
+	.menu-proyectos::-webkit-scrollbar { display: none; }
+
+	.menu-proyectos p {
+		flex: none;
+		white-space: nowrap;
+		margin-left: auto;            
+		margin-right: 2em;
+		font-size: 2.4vw;
+	}
+
+	.menu-proyectos .nav-link {
+		flex: none;
+		white-space: nowrap;
+		margin-left: 1em;
+		padding: 0.3em 1em;
+		font-size: clamp(12px, 1.9vw, 18px);
+	}
+
+	.menu-proyectos .nav-link:last-child {
+		margin-right: auto;
+	}
+
+
+	/* ---------- PROYECTOS (cámara + fotos) ---------- */
+	.proy-titulo { font-size: 2.6vw; }
+	.proy-info   { font-size: 1.6vw; }
+
+	.play {
+		width: 5vw;
+		height: 5vw;
+		margin-left: -2.5vw;
+		margin-top: -2.5vw;
+		border-width: 2px;
+	}
+
+	.play::after {
+		margin-left: -0.75vw;
+		margin-top: -1.2vw;
+		border-width: 1.2vw 0 1.2vw 2vw;
+	}
+
+
+	/* ---------- FOOTER ---------- */
+	.contact {
+		height: auto;
+		min-height: 70vh;
+		padding-bottom: 12vh;
+	}
+
+	.contact-texto { width: 50%; }
+
+	.contact-columnas {
+		grid-template-columns: 1fr;
+	}
+
+	.contact h3 { font-size: max(5vh, 28px); }
+	.contact h4 { font-size: max(2.4vh, 16px); }
+	.contact p  { font-size: max(2vh, 14px); }
+
+	.redes img {
+		width: max(4vh, 28px);
+		height: max(4vh, 28px);
+	}
+
+
+	.footer-dibujo {
+		height: 85%;
+		bottom: 4%;
+	}
+
+
+	/* ---------------------------------------------- Entre 501px y 767px ----------------------------------------------*/
+	@media screen and (max-width: 767.98px) {
+
+		.proyecto .col-12.col-md-4 {
+			flex: 0 0 60%;
+			max-width: 60%;
+			margin-left: 0;          /* antes: auto */
+			margin-right: auto;
+			margin-bottom: 15px;
+		}
+
+		.proy-titulo { font-size: 4.7vw; }
+		.proy-info   { font-size: 2.9vw;
+						width: 100%;}
+
+		.play {
+			width: 9vw;
+			height: 9vw;
+			margin-left: -4.5vw;
+			margin-top: -4.5vw;
+		}
+
+		.play::after {
+			margin-left: -1.35vw;
+			margin-top: -2.2vw;
+			border-width: 2.2vw 0 2.2vw 3.6vw;
+		}
+
+		.footer-dibujo {
+			height: 70%;             /* antes 85% */
+			bottom: 0;               /* antes 4% */
+		}
+	}
+}
+
+
+/* ------------------------------------------------------MÓVIL: hasta 500px------------------------------------------------------------------------*/
+@media screen and (max-width: 500px) {
+
+	.header-enlace { display: none; }
+
+	.header-menu {
+		margin: 0 3% 0 auto;    
+		gap: 3vw;
+	}
+
+	.header-menu {
+		right: 3%;
+		gap: 3vw;
+	}
+
+	.header-menu a {
+		font-size: 11px;
+		letter-spacing: 0.5px;
+	}
+
+
+	/* ---------- PORTADA ---------- */
+	.lienzo h2 { font-size: 2.9vw; }
+
+
+	/* ---------- BANNER ---------- */
+	.banner { height: 7vh; }
+
+	.banner h2 {
+		font-size: 1.2rem;
+		padding: 0 24px;
+	}
+
+
+	/* ---------- ABOUT ME ---------- */
+	.aboutme {
+		height: clamp(480px, 135vw, 85vh);
+	}
+
+	.am-estrella {
+		left: 25%;
+		top: 4%;
+		height: 34%;
+	}
+
+	.am-yo {
+		left: 2%;
+		top: 22%;
+		height: 62%;
+	}
+
+	.am-camara {
+		left: 28%;
+		bottom: 3%;
+		width: 32%;
+	}
+		
+
+	.menu {
+		left: 58%;
+		width: 40%;
+		top: 3%;
+		height: 94%;
+	}
+
+	.item h3 {
+		font-size: clamp(11px, 3.1vw, 16px);
+		border-bottom-width: 2px;
+		color: white;           
+	}
+
+	.item { border-bottom-width: 2px; }
+
+	.panel {
+		left: 2%;
+		top: 2%;
+		width: 96%;
+		height: 96%;
+	}
+
+	.panel-cerrado {
+		padding: 2.5vh 4% 3vh 4%;
+	}
+
+	.cerrar {
+		font-size: 26px;
+		top: 1.5vh;
+		right: 2.5vw;
+	}
+
+	.seccion-titulo {
+		width: 82%;
+		margin-bottom: 2.5vh;
+	}
+
+	.seccion-titulo h2 {
+		font-size: clamp(18px, 5.6vw, 28px);
+	}
+
+	.about { display: block; }
+
+	.about-yo {
+		display: block;
+		width: 62%;
+		margin: 0 auto 2vh auto;
+	}
+
+	.globo {
+		font-size: 14px;
+		padding: 0.8em 1em;
+	}
+
+	.globo2 {
+		width: 100%;
+		margin-top: 2vh;
+	}
+
+	.skills {
+		grid-template-columns: 1fr;
+		align-items: start;
+		gap: 3vh;
+	}
+
+	.skill { font-size: 13px; }
+
+	.portatil {
+		width: 80%;
+		margin: 0 auto 2vh auto;
+	}
+
+	/* Projects */
+	.intro { font-size: 14px; }
+	.jam   { font-size: 13px; }
+
+	.dos-col {
+		grid-template-columns: 1fr;
+		gap: 3vh;
+	}
+
+	.insti h3 span {
+		display: block;
+		margin-left: 0;
+		margin-top: 0.2em;
+	}
+
+	.insti h4 { font-size: 14px; }
+	.insti p  { font-size: 14px; }
+
+	.lado-img {
+		display: block;
+		width: 55%;
+		margin: 0 auto;
+	}
+
+	.bustos {
+		flex-direction: row;
+		justify-content: center;
+		align-items: center;
+		gap: 4%;
+	}
+
+	.bustos img {
+		width: 46%;
+		max-width: none;
+		max-height: none;
+	}
+
+	.bustos img:nth-child(2) { align-self: auto; }
+
+
+	/* ---------- MENÚ STICKY DE PROYECTOS ---------- */
+	.menu-proyectos p { display: none; }
+
+	.menu-proyectos .nav-link {
+		margin-left: 0.6em;
+		padding: 0.3em 0.8em;
+		font-size: 12px;
+	}
+
+
+	/* ---------- PROYECTOS ---------- */
+	.proyecto { padding: 3vh 0; }
+
+	.proyecto .col-12.col-md-4 {
+		flex: 0 0 90%;
+		max-width: 90%;
+		margin-left: 0;         
+		margin-right: auto;     
+	}
+
+	.proy-titulo { font-size: 5.8vw; }
+	.proy-info   { font-size: 3.4vw;
+					width:50%; }
+
+	.play {
+		width: 13.5vw;
+		height: 13.5vw;
+		margin-left: -6.75vw;
+		margin-top: -6.75vw;
+	}
+
+	.play::after {
+		margin-left: -2vw;
+		margin-top: -3.24vw;
+		border-width: 3.24vw 0 3.24vw 5.4vw;
+	}
+
+	.proy-fotos { padding-right: 0; }
+
+	.proy-fotos .col-4 {
+		flex: 0 0 55%;
+		max-width: 55%;
+	}
+
+
+	/* ---------- FOOTER ---------- */
+	.contact-texto { width: 100%; }
+
+	.footer-dibujo {
+		height: 45%;
+		right: 0;
+		bottom: 12%;            
+	}
+
+
+	/* ---------- FANCYBOX ---------- */
+	.fancybox-toolbar { transform: scale(1.1); }
+
+	.fancybox-button--arrow_left,
+	.fancybox-button--arrow_right { transform: scale(1.2); }
+
+	.fancybox-infobar { transform: scale(1.1); }
+}
